@@ -1,0 +1,4 @@
+This is a directory, where located results of homework for DEUTSCHE TELEKOM IT SOLUTIONS.
+
+The main idea is to write a class that prints all breadcrumbs
+(ex. /dishes/main/fish) for all captions in the menu dictionary. Dictionary cames as a result of the completion of  getItems() method (class Menu).
