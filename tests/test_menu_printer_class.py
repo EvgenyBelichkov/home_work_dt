@@ -1,10 +1,7 @@
 from main import MenuPrinter
+import pytest
 
-
-class Menu:
-    def getItems(self):
-
-        return {
+example_1 = {
             'welcome': {
                 'caption': 'Welcome',
             },
@@ -31,11 +28,15 @@ class Menu:
         }
 
 
+@pytest.mark.parametrize("dictionary, expected_result", [(example_1, '/welcome\n/dishes/main/fish\n/dishes/main/meat\n/dishes/salads\n')])
+def test_class_MenuPrinter(capsys, dictionary, expected_result):
+    class Menu:
+        def getItems(self):
+            return dictionary
 
-def test_class_MenuPrinter(capsys):
     menu = Menu()
     menu_printer = MenuPrinter(menu)
     menu_printer.print_menu()
     out, err = capsys.readouterr()
     assert out == '/welcome\n/dishes/main/fish\n/dishes/main/meat\n/dishes/salads\n'
-
+    assert err == ''
